@@ -1,0 +1,64 @@
+﻿
+# Python environment
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+
+# Environment variables and secrets
+.env
+.env.*
+!.env.example
+
+# Node
+node_modules/
+client/node_modules/
+client/dist/
+dist/
+
+# Temporary frontend files
+client/tmp/
+client/tmp-*.js
+client/dist_backup_*/
+client/dist_before_*/
+
+# IDE
+.vscode/
+.idea/
+
+# Runtime uploads and history
+app/uploads/
+uploads/
+data/history.json
+history.json
+
+# Training datasets
+training/dataset/
+training/datasets/
+training/raw/
+training/kaggle_meta_140k/
+training/reports/
+
+# Temporary training and experiment files
+*.backup
+*.bak
+*_backup.*
+*_before_*
+
+# Logs
+*.log
+npm-debug.log*
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Exclude legacy server and local training data
+server/
+training/dataset/
+training/datasets/
+training/raw/
+
+data/users.json

@@ -1,0 +1,13 @@
+{
+  "module": "scam_calls",
+  "modality": "text_transcript",
+  "version": "v2",
+  "best_algorithm": "SGDClassifier_Balanced",
+  "selected_threshold": 0.6,
+  "label_mapping": {
+    "0": "normal",
+    "1": "scam"
+  },
+  "vectorizer": "TF-IDF (max_features=30000, ngram=(1,2), sublinear_tf=True)",
+  "random_seed": 42
+}

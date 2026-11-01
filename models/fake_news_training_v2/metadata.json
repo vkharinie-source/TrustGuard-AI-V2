@@ -1,0 +1,12 @@
+{
+  "module": "fake_news",
+  "version": "v2",
+  "best_algorithm": "SGDClassifier_LogLoss",
+  "selected_threshold": 0.4,
+  "label_mapping": {
+    "0": "real_true",
+    "1": "fake"
+  },
+  "vectorizer": "TF-IDF (max_features=40000, ngram=(1,2), sublinear_tf=True)",
+  "random_seed": 42
+}

@@ -1,0 +1,13 @@
+{
+  "module": "video_deepfake",
+  "version": "v1",
+  "dataset": "FaceForensics++ & Celeb-DF Combined (nanduncs/1000-videos-split)",
+  "backbone": "MobileNetV2(ImageNet, pooling=avg, 128x128)",
+  "classifier": "LogisticRegression",
+  "selected_threshold": 0.3,
+  "label_mapping": {
+    "0": "real_authentic",
+    "1": "fake_deepfake"
+  },
+  "random_seed": 42
+}

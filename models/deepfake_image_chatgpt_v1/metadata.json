@@ -1,0 +1,16 @@
+{
+  "model_name": "TrustGuard Experimental Multi-Generator AI Detector Branch",
+  "version": "1.0.0-experimental",
+  "description": "Forensic error-level and frequency-residual classifier trained on diverse generative AI signatures (ChatGPT/DALL-E 3, StyleGAN2) and genuine camera sensor photographs.",
+  "calibrated_threshold": 0.4966,
+  "default_threshold": 0.5,
+  "feature_count": 21,
+  "train_samples": 129,
+  "val_metrics": {
+    "roc_auc": 0.9133,
+    "accuracy": 0.8983,
+    "genuine_photo_fpr": 0.0244,
+    "ai_generated_fnr": 0.2778
+  },
+  "preserved_base_checkpoint": "models/deepfake_image_v8/deepfake_mobilenetv8_exp4_multitask_best.keras"
+}

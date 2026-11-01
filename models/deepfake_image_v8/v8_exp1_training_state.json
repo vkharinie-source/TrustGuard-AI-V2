@@ -1,0 +1,140 @@
+{
+  "experiment": "V8-Exp1: High-Pass Residual Branch (Tri-Stream)",
+  "status": "completed",
+  "stage": 2,
+  "stage_name": "stage2",
+  "completed_epoch_in_stage": 4,
+  "total_epochs_in_stage": 4,
+  "best_val_loss": 0.66491,
+  "best_stage": 2,
+  "best_epoch": 3,
+  "latest_checkpoint": "models\\deepfake_image_v8\\deepfake_mobilenetv8_exp1_frequency_latest.keras",
+  "best_checkpoint": "models\\deepfake_image_v8\\deepfake_mobilenetv8_exp1_frequency_best.keras",
+  "history": {
+    "stage1": {
+      "loss": [
+        0.72952,
+        0.52102,
+        0.43712,
+        0.38349
+      ],
+      "accuracy": [
+        0.64325,
+        0.78725,
+        0.83875,
+        0.869
+      ],
+      "auc": [
+        0.70433,
+        0.87038,
+        0.92094,
+        0.94466
+      ],
+      "precision": [
+        0.64565,
+        0.78797,
+        0.84304,
+        0.87273
+      ],
+      "recall": [
+        0.635,
+        0.786,
+        0.8325,
+        0.864
+      ],
+      "val_loss": [
+        0.85196,
+        0.70245,
+        0.84504,
+        3.28202
+      ],
+      "val_accuracy": [
+        0.641,
+        0.691,
+        0.643,
+        0.502
+      ],
+      "val_auc": [
+        0.7118,
+        0.76686,
+        0.7556,
+        0.46454
+      ],
+      "val_precision": [
+        0.72816,
+        0.75467,
+        0.59346,
+        0.501
+      ],
+      "val_recall": [
+        0.45,
+        0.566,
+        0.908,
+        1.0
+      ]
+    },
+    "stage2": {
+      "loss": [
+        0.4091,
+        0.35124,
+        0.32677,
+        0.30751
+      ],
+      "accuracy": [
+        0.859,
+        0.89,
+        0.89825,
+        0.9065
+      ],
+      "auc": [
+        0.93631,
+        0.95671,
+        0.96468,
+        0.9698
+      ],
+      "precision": [
+        0.8565,
+        0.88961,
+        0.89102,
+        0.90937
+      ],
+      "recall": [
+        0.8625,
+        0.8905,
+        0.9075,
+        0.903
+      ],
+      "val_loss": [
+        1.1037,
+        1.78812,
+        0.66491,
+        0.68879
+      ],
+      "val_accuracy": [
+        0.597,
+        0.521,
+        0.771,
+        0.735
+      ],
+      "val_auc": [
+        0.69962,
+        0.61516,
+        0.93342,
+        0.85837
+      ],
+      "val_precision": [
+        0.56291,
+        0.51217,
+        0.95932,
+        0.81501
+      ],
+      "val_recall": [
+        0.868,
+        0.884,
+        0.566,
+        0.608
+      ]
+    }
+  },
+  "last_updated": "2026-10-24T03:54:50Z"
+}

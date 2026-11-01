@@ -1,0 +1,11 @@
+{
+  "feature_type": "FeatureUnion(URLFeatureExtractor(32) + TfidfVectorizer_char_wb(3-5) + TfidfVectorizer_word(1-2))",
+  "engineered_feature_count": 32,
+  "input_format": "raw_url_string",
+  "classifier": "LogisticRegression(C=2.5, class_weight='balanced')",
+  "classes": [
+    0,
+    1
+  ],
+  "calibrated_decision_threshold": 0.46
+}

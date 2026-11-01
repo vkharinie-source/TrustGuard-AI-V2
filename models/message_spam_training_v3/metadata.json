@@ -1,0 +1,18 @@
+{
+  "module": "message_spam",
+  "version": "v3",
+  "best_algorithm": "MultinomialNB",
+  "selected_threshold": 0.3,
+  "label_mapping": {
+    "0": "ham",
+    "1": "spam"
+  },
+  "vectorizer": "TF-IDF (max_features=40000, ngram=(1,2), sublinear_tf=True)",
+  "languages_evaluated": [
+    "english",
+    "french",
+    "german",
+    "hindi"
+  ],
+  "random_seed": 42
+}

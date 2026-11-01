@@ -1,0 +1,11 @@
+{
+  "module": "phishing_urls",
+  "version": "v4",
+  "model_type": "Direct URL FeatureUnion (char_wb 3-6 + word 1-2) + LogisticRegression",
+  "dataset": "Training.parquet and Testing.parquet",
+  "validation_accuracy": 0.9216710182767625,
+  "validation_f1": 0.9203539823008849,
+  "test_accuracy": 0.9371686108165429,
+  "test_f1": 0.937185263715876,
+  "decision_threshold": 0.5
+}

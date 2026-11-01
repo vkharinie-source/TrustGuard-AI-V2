@@ -1,0 +1,186 @@
+{
+  "model_name": "MobileNetV2 DeepFake Detector V7 (Dual-Stream Architecture)",
+  "version": "7.0.0",
+  "evaluation_timestamp": "2026-10-23T18:13:52Z",
+  "sample_count": 1000,
+  "decision_threshold": 0.5,
+  "threshold_selection_criterion": "Max Youden J on Validation data with standard 0.50 preference within 0.02 margin",
+  "label_mapping": {
+    "0": "FAKE (Negative Class)",
+    "1": "REAL (Positive Class, Sigmoid output P(REAL))"
+  },
+  "overall_metrics": {
+    "accuracy": 0.88,
+    "binary_crossentropy_loss": 0.3133,
+    "roc_auc": 0.9424,
+    "fake_precision": 0.8958,
+    "fake_recall": 0.86,
+    "fake_f1": 0.8776,
+    "real_precision": 0.8654,
+    "real_recall": 0.9,
+    "real_f1": 0.8824,
+    "false_reals_count": 70,
+    "false_fakes_count": 50,
+    "confusion_matrix": {
+      "TN": 430,
+      "FP": 70,
+      "FN": 50,
+      "TP": 450
+    }
+  },
+  "subgroups": {
+    "deepguard_face_swap": {
+      "name": "DeepGuard Face-Swap Manipulation",
+      "sample_count": 500,
+      "real_count": 250,
+      "fake_count": 250,
+      "accuracy": 0.91,
+      "roc_auc": 0.9632,
+      "fake_precision": 0.8868,
+      "fake_recall": 0.94,
+      "fake_f1": 0.9126,
+      "real_precision": 0.9362,
+      "real_recall": 0.88,
+      "real_f1": 0.9072,
+      "false_reals_count": 15,
+      "false_fakes_count": 30,
+      "confusion_matrix": {
+        "TN": 235,
+        "FP": 15,
+        "FN": 30,
+        "TP": 220
+      }
+    },
+    "kaggle_stylegan": {
+      "name": "Kaggle NVIDIA StyleGAN Generative",
+      "sample_count": 500,
+      "real_count": 250,
+      "fake_count": 250,
+      "accuracy": 0.85,
+      "roc_auc": 0.9301,
+      "fake_precision": 0.907,
+      "fake_recall": 0.78,
+      "fake_f1": 0.8387,
+      "real_precision": 0.807,
+      "real_recall": 0.92,
+      "real_f1": 0.8598,
+      "false_reals_count": 55,
+      "false_fakes_count": 20,
+      "confusion_matrix": {
+        "TN": 195,
+        "FP": 55,
+        "FN": 20,
+        "TP": 230
+      }
+    }
+  },
+  "crop_status_breakdown": {
+    "detected_faces": {
+      "name": "FACE_DETECTED (+20% Contextual Margin)",
+      "sample_count": 913,
+      "real_count": 468,
+      "fake_count": 445,
+      "accuracy": 0.8839,
+      "roc_auc": 0.9475,
+      "fake_precision": 0.897,
+      "fake_recall": 0.8607,
+      "fake_f1": 0.8784,
+      "real_precision": 0.8724,
+      "real_recall": 0.906,
+      "real_f1": 0.8889,
+      "false_reals_count": 62,
+      "false_fakes_count": 44,
+      "confusion_matrix": {
+        "TN": 383,
+        "FP": 62,
+        "FN": 44,
+        "TP": 424
+      }
+    },
+    "fallback_crops": {
+      "name": "FALLBACK_CENTRAL_80 (Deterministic Facial Prior)",
+      "sample_count": 87,
+      "real_count": 32,
+      "fake_count": 55,
+      "accuracy": 0.8391,
+      "roc_auc": 0.8688,
+      "fake_precision": 0.8868,
+      "fake_recall": 0.8545,
+      "fake_f1": 0.8704,
+      "real_precision": 0.7647,
+      "real_recall": 0.8125,
+      "real_f1": 0.7879,
+      "false_reals_count": 8,
+      "false_fakes_count": 6,
+      "confusion_matrix": {
+        "TN": 47,
+        "FP": 8,
+        "FN": 6,
+        "TP": 26
+      }
+    }
+  },
+  "acceptance_criteria_evaluation": {
+    "overall_status": "FAIL",
+    "criteria": {
+      "deepguard_face_swap_recall": {
+        "criterion": "DeepGuard Face-Swap Recall >= 60.00%",
+        "required_min": 0.6,
+        "achieved_value": 0.94,
+        "status": "PASS"
+      },
+      "deepguard_real_recall": {
+        "criterion": "DeepGuard Real Recall >= 90.00%",
+        "required_min": 0.9,
+        "achieved_value": 0.88,
+        "status": "FAIL"
+      },
+      "kaggle_generative_fake_recall": {
+        "criterion": "Kaggle Generative Fake Recall >= 80.00%",
+        "required_min": 0.8,
+        "achieved_value": 0.78,
+        "status": "FAIL"
+      },
+      "kaggle_genuine_real_recall": {
+        "criterion": "Kaggle Genuine Real Recall >= 70.00%",
+        "required_min": 0.7,
+        "achieved_value": 0.92,
+        "status": "PASS"
+      },
+      "overall_test_accuracy": {
+        "criterion": "Overall Test Accuracy >= 75.00%",
+        "required_min": 0.75,
+        "achieved_value": 0.88,
+        "status": "PASS"
+      }
+    }
+  },
+  "historical_comparison": {
+    "v4_production": {
+      "accuracy": 0.5,
+      "dg_face_swap_recall": 0.0,
+      "status": "Contaminated by pair leakage"
+    },
+    "v5_full_frame": {
+      "accuracy": 0.653,
+      "dg_face_swap_recall": 0.232,
+      "kg_real_recall": 0.74
+    },
+    "v6_face_crop": {
+      "accuracy": 0.612,
+      "dg_face_swap_recall": 0.556,
+      "kg_real_recall": 0.012
+    },
+    "v7_dual_stream": {
+      "accuracy": 0.88,
+      "dg_face_swap_recall": 0.94,
+      "kg_real_recall": 0.92,
+      "kg_fake_recall": 0.78
+    }
+  },
+  "integrity_confirmation": {
+    "test_used_for_tuning": false,
+    "production_v4_modified": false,
+    "predictor_service_modified": false
+  }
+}

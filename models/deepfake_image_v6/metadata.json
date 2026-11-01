@@ -1,0 +1,182 @@
+{
+  "model_name": "MobileNetV2 DeepFake Detector V6 (Face-Crop Baseline)",
+  "version": "6.0.0",
+  "architecture": "MobileNetV2 (ImageNet) + Dual-Pooling (GAP+GMP) + Dense ANN Head",
+  "input_size": {
+    "width": 224,
+    "height": 224,
+    "channels": 3
+  },
+  "preprocessing": "FaceCrop(margin=0.20, fallback=central_0.80) -> Rescaling(1/127.5, offset=-1.0)",
+  "class_mapping": {
+    "0": "FAKE",
+    "1": "REAL"
+  },
+  "decision_threshold": 0.65,
+  "threshold_selection_criterion": "Max Youden J on Validation data with standard 0.50 preference within 0.02 margin",
+  "trained_at": "2026-10-23T17:30:13Z",
+  "backbone": "MobileNetV2",
+  "training_epochs": {
+    "stage1_epochs": 4,
+    "stage2_epochs": 4,
+    "total_epochs": 8
+  },
+  "training_history": {
+    "stage1": {
+      "accuracy": [
+        0.596750020980835,
+        0.6754999756813049,
+        0.703249990940094,
+        0.7195000052452087
+      ],
+      "auc": [
+        0.6350247263908386,
+        0.7330522537231445,
+        0.7726665735244751,
+        0.7825566530227661
+      ],
+      "loss": [
+        0.7732729911804199,
+        0.6796423196792603,
+        0.6409627795219421,
+        0.6309374570846558
+      ],
+      "precision": [
+        0.5994858741760254,
+        0.6809278130531311,
+        0.7165690064430237,
+        0.730567216873169
+      ],
+      "recall": [
+        0.5830000042915344,
+        0.6604999899864197,
+        0.6725000143051147,
+        0.6955000162124634
+      ],
+      "val_accuracy": [
+        0.5759999752044678,
+        0.5180000066757202,
+        0.5070000290870667,
+        0.515999972820282
+      ],
+      "val_auc": [
+        0.6277899742126465,
+        0.5775600671768188,
+        0.56004798412323,
+        0.5634340047836304
+      ],
+      "val_loss": [
+        0.8989664316177368,
+        1.6282790899276733,
+        1.9000842571258545,
+        1.8389976024627686
+      ],
+      "val_precision": [
+        0.5544412732124329,
+        0.5100222826004028,
+        0.5039458870887756,
+        0.5091953873634338
+      ],
+      "val_recall": [
+        0.7739999890327454,
+        0.9160000085830688,
+        0.8939999938011169,
+        0.8859999775886536
+      ]
+    },
+    "stage2": {
+      "accuracy": [
+        0.7077500224113464,
+        0.7472500205039978,
+        0.7582499980926514,
+        0.7724999785423279
+      ],
+      "auc": [
+        0.7842808365821838,
+        0.8198652267456055,
+        0.8415624499320984,
+        0.8504453897476196
+      ],
+      "loss": [
+        0.6331107020378113,
+        0.5926482677459717,
+        0.5604862570762634,
+        0.5490103363990784
+      ],
+      "precision": [
+        0.7129676938056946,
+        0.7468796968460083,
+        0.766374409198761,
+        0.7844467759132385
+      ],
+      "recall": [
+        0.6955000162124634,
+        0.7480000257492065,
+        0.7429999709129333,
+        0.7515000104904175
+      ],
+      "val_accuracy": [
+        0.4970000088214874,
+        0.531000018119812,
+        0.5540000200271606,
+        0.5
+      ],
+      "val_auc": [
+        0.5733199715614319,
+        0.5953680276870728,
+        0.5864099860191345,
+        0.41419798135757446
+      ],
+      "val_loss": [
+        1.3957455158233643,
+        1.6416047811508179,
+        1.1401821374893188,
+        3.0965709686279297
+      ],
+      "val_precision": [
+        0.4982896149158478,
+        0.5173962116241455,
+        0.560538113117218,
+        0.5
+      ],
+      "val_recall": [
+        0.8740000128746033,
+        0.921999990940094,
+        0.5,
+        0.9940000176429749
+      ],
+      "learning_rate": [
+        9.999999747378752e-05,
+        9.999999747378752e-05,
+        9.999999747378752e-05,
+        9.999999747378752e-05
+      ]
+    }
+  },
+  "best_val_loss": 1.1401821374893188,
+  "batch_size": 32,
+  "random_seed": 42,
+  "experiment_notes": {
+    "train_duplicate_pairs": [
+      {
+        "pair_id": 1,
+        "split": "train",
+        "class": "real",
+        "file_a": "kaggle_ffhq_real_01370_real_47322.jpg",
+        "file_b": "kaggle_ffhq_real_01747_real_3930.jpg",
+        "sha256": "0e0a1e4dacc5f36395256a314a19cd5ab51490020a8609b384e9edb3f7a75b79",
+        "note": "Near-identical upstream FFHQ images; identical facial crop area. Confined strictly to train/real/."
+      },
+      {
+        "pair_id": 2,
+        "split": "train",
+        "class": "real",
+        "file_a": "kaggle_ffhq_real_01818_real_69277.jpg",
+        "file_b": "kaggle_ffhq_real_01952_real_29987.jpg",
+        "sha256": "0479acda4e62b10e233f45c45d643d3c7d0cf7a4bfec041dd93c54091de4ae79",
+        "note": "Near-identical upstream FFHQ images; identical facial crop area. Confined strictly to train/real/."
+      }
+    ],
+    "isolation": "Production V4 model, predictor.py, server/main.py, and client/ untouched."
+  }
+}

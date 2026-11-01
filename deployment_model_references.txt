@@ -1,0 +1,37 @@
+D:\project\DeepFake-Detector-AI\app\services\cross_model_service.py | Line 16 | V4_MODEL_PATH = ROOT_DIR / "models" / "deepfake_image_v4" / "deepfake_mobilenetv4_best.keras"
+D:\project\DeepFake-Detector-AI\app\services\cross_model_service.py | Line 18 | V4_MODEL_PATH = ROOT_DIR / "model" / "deepfake_mobilenetv2_v4_best.keras"
+D:\project\DeepFake-Detector-AI\app\services\cross_model_service.py | Line 20 | V3_MODEL_PATH = ROOT_DIR / "model" / "deepfake_mobilenetv2_v3_best.keras"
+D:\project\DeepFake-Detector-AI\app\services\cross_model_service.py | Line 21 | V2_MODEL_PATH = ROOT_DIR / "model" / "deepfake_mobilenetv2_v2_best.keras"
+D:\project\DeepFake-Detector-AI\app\services\cross_model_service.py | Line 30 | _loaded_models[name] = tf.keras.models.load_model(path, compile=False)
+D:\project\DeepFake-Detector-AI\app\services\ml_call_service.py | Line 8 | self.pipeline_path = base_dir / "models" / "scam_calls_training_v2" / "scam_calls_pipeline.pkl"
+D:\project\DeepFake-Detector-AI\app\services\ml_call_service.py | Line 9 | self.model_path = base_dir / "models" / "call" / "call_model.pkl"
+D:\project\DeepFake-Detector-AI\app\services\ml_call_service.py | Line 10 | self.vec_path = base_dir / "models" / "call" / "call_vectorizer.pkl"
+D:\project\DeepFake-Detector-AI\app\services\ml_email_service.py | Line 8 | self.pipeline_path = base_dir / "models" / "email_spam_training_v3" / "email_spam_pipeline.pkl"
+D:\project\DeepFake-Detector-AI\app\services\ml_email_service.py | Line 9 | self.model_path = base_dir / "models" / "email" / "email_model.pkl"
+D:\project\DeepFake-Detector-AI\app\services\ml_email_service.py | Line 10 | self.vec_path = base_dir / "models" / "email" / "email_vectorizer.pkl"
+D:\project\DeepFake-Detector-AI\app\services\ml_job_scam_service.py | Line 8 | self.pipeline_path = base_dir / "models" / "job_scam_training_v3" / "job_scam_pipeline.pkl"
+D:\project\DeepFake-Detector-AI\app\services\ml_job_scam_service.py | Line 9 | self.model_path = base_dir / "models" / "job_scam" / "job_scam_model.pkl"
+D:\project\DeepFake-Detector-AI\app\services\ml_job_scam_service.py | Line 10 | self.vec_path = base_dir / "models" / "job_scam" / "job_scam_vectorizer.pkl"
+D:\project\DeepFake-Detector-AI\app\services\ml_message_service.py | Line 8 | self.pipeline_path = base_dir / "models" / "message_spam_training_v3" / "message_spam_pipeline.pkl"
+D:\project\DeepFake-Detector-AI\app\services\ml_message_service.py | Line 9 | self.model_path = base_dir / "models" / "message" / "message_model.pkl"
+D:\project\DeepFake-Detector-AI\app\services\ml_message_service.py | Line 10 | self.vec_path = base_dir / "models" / "message" / "message_vectorizer.pkl"
+D:\project\DeepFake-Detector-AI\app\services\ml_news_service.py | Line 8 | self.pipeline_path = base_dir / "models" / "fake_news_training_v2" / "fake_news_pipeline.pkl"
+D:\project\DeepFake-Detector-AI\app\services\ml_news_service.py | Line 9 | self.model_path = base_dir / "models" / "news" / "news_model.pkl"
+D:\project\DeepFake-Detector-AI\app\services\ml_news_service.py | Line 10 | self.vec_path = base_dir / "models" / "news" / "news_vectorizer.pkl"
+D:\project\DeepFake-Detector-AI\app\services\ml_url_service.py | Line 8 | self.model_path = os.path.join(base_dir, "models", "url", "url_model.pkl")
+D:\project\DeepFake-Detector-AI\app\services\predictor.py | Line 42 | V8_EXP4_PATH = ROOT / "models" / "deepfake_image_v8" / "deepfake_mobilenetv8_exp4_multitask_best.keras"
+D:\project\DeepFake-Detector-AI\app\services\predictor.py | Line 43 | V4_PATH = ROOT / "models" / "deepfake_image_v4" / "deepfake_mobilenetv4_best.keras"
+D:\project\DeepFake-Detector-AI\app\services\predictor.py | Line 44 | V4_CONVENIENCE_PATH = ROOT / "model" / "deepfake_mobilenetv2_v4_best.keras"
+D:\project\DeepFake-Detector-AI\app\services\predictor.py | Line 45 | V3_BACKUP_PATH = ROOT / "model" / "deepfake_mobilenetv2_v3_best.keras"
+D:\project\DeepFake-Detector-AI\app\services\predictor.py | Line 80 | loaded = tf.keras.models.load_model(str(path), compile=False)
+D:\project\DeepFake-Detector-AI\app\services\predictor.py | Line 110 | raise FileNotFoundError("No trained deepfake model could be loaded from model/ or models/.")
+D:\project\DeepFake-Detector-AI\app\services\predictor_v1_backup.py | Line 11 | MODEL_PATH = ROOT / "model" / "deepfake_mobilenetv2_best.keras"
+D:\project\DeepFake-Detector-AI\app\services\predictor_v1_backup.py | Line 19 | model = tf.keras.models.load_model(
+D:\project\DeepFake-Detector-AI\app\services\predictor_v4_backup.py | Line 31 | V4_PATH = ROOT / "models" / "deepfake_image_v4" / "deepfake_mobilenetv4_best.keras"
+D:\project\DeepFake-Detector-AI\app\services\predictor_v4_backup.py | Line 32 | V4_CONVENIENCE_PATH = ROOT / "model" / "deepfake_mobilenetv2_v4_best.keras"
+D:\project\DeepFake-Detector-AI\app\services\predictor_v4_backup.py | Line 33 | V3_BACKUP_PATH = ROOT / "model" / "deepfake_mobilenetv2_v3_best.keras"
+D:\project\DeepFake-Detector-AI\app\services\predictor_v4_backup.py | Line 65 | raise FileNotFoundError("No trained deepfake model found in model/ or models/.")
+D:\project\DeepFake-Detector-AI\app\services\predictor_v4_backup.py | Line 69 | model = tf.keras.models.load_model(MODEL_PATH, compile=False)
+D:\project\DeepFake-Detector-AI\app\services\website_detector.py | Line 103 | model_path = candidate_dir / "phishing_urls_pipeline.pkl"
+D:\project\DeepFake-Detector-AI\app\services\website_detector_v6_exp.py | Line 6 | - Loads models/phishing_urls_v6_exp/phishing_urls_pipeline_v6.pkl
+D:\project\DeepFake-Detector-AI\app\services\website_detector_v6_exp.py | Line 72 | model_path = model_dir / "phishing_urls_pipeline_v6.pkl"

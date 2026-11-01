@@ -1,0 +1,275 @@
+{
+  "model_version": "V6-Experimental",
+  "model_type": "URLFeatureExtractorV6 (46 features) + RobustScaler + TFIDF Char/Word + LogisticRegression",
+  "trained_date": "2026-10-25",
+  "training_dataset": "v6_train.parquet",
+  "training_samples": 6087,
+  "validation_samples": 1305,
+  "calibrated_threshold": 0.46,
+  "classes": [
+    0,
+    1
+  ],
+  "feature_names": [
+    "url_len",
+    "host_len",
+    "path_len",
+    "query_len",
+    "is_https",
+    "is_ip",
+    "dot_count",
+    "subdomain_count",
+    "hyphen_count",
+    "host_hyphen_count",
+    "at_count",
+    "qm_count",
+    "and_count",
+    "eq_count",
+    "slash_count",
+    "percent_count",
+    "double_slash_in_path",
+    "suspicious_tld",
+    "is_shortener",
+    "digit_ratio_url",
+    "digit_ratio_host",
+    "host_entropy",
+    "url_entropy",
+    "phish_keyword_count",
+    "brand_impersonation_flag",
+    "http_in_path",
+    "punycode",
+    "word_count",
+    "longest_word",
+    "avg_word_len",
+    "has_port",
+    "tld_in_subdomain_or_path",
+    "fuzzy_brand_max_similarity",
+    "fuzzy_brand_flag",
+    "brand_prefix_suffix_flag",
+    "brand_confusable_flag",
+    "is_shared_hosting",
+    "shared_subdomain_len",
+    "shared_subdomain_entropy",
+    "shared_host_brand_or_security",
+    "is_short_url",
+    "path_entropy",
+    "short_url_path_entropy_interaction",
+    "has_random_path_token",
+    "path_depth",
+    "has_generic_dir"
+  ],
+  "validation_metrics": {
+    "threshold": 0.46,
+    "accuracy": 0.9464,
+    "precision": 0.9393,
+    "recall": 0.9512,
+    "f1": 0.9452,
+    "roc_auc": 0.9848,
+    "pr_auc": 0.9861,
+    "phishing_fnr": 0.0488,
+    "legitimate_fpr": 0.0582,
+    "confusion_matrix": {
+      "tn": 631,
+      "fp": 39,
+      "fn": 31,
+      "tp": 604
+    }
+  },
+  "ablation_summary": {
+    "Baseline (V5 features)": {
+      "mode": "baseline",
+      "feature_count": 32,
+      "metrics_at_050": {
+        "threshold": 0.5,
+        "accuracy": 0.9425,
+        "precision": 0.9416,
+        "recall": 0.9402,
+        "f1": 0.9409,
+        "roc_auc": 0.9836,
+        "pr_auc": 0.9852,
+        "phishing_fnr": 0.0598,
+        "legitimate_fpr": 0.0552,
+        "confusion_matrix": {
+          "tn": 633,
+          "fp": 37,
+          "fn": 38,
+          "tp": 597
+        }
+      },
+      "calibrated_threshold": 0.5,
+      "metrics_at_calibrated": {
+        "threshold": 0.5,
+        "accuracy": 0.9425,
+        "precision": 0.9416,
+        "recall": 0.9402,
+        "f1": 0.9409,
+        "roc_auc": 0.9836,
+        "pr_auc": 0.9852,
+        "phishing_fnr": 0.0598,
+        "legitimate_fpr": 0.0552,
+        "confusion_matrix": {
+          "tn": 633,
+          "fp": 37,
+          "fn": 38,
+          "tp": 597
+        }
+      }
+    },
+    "Candidate A (Fuzzy Brand)": {
+      "mode": "fuzzy_brand",
+      "feature_count": 36,
+      "metrics_at_050": {
+        "threshold": 0.5,
+        "accuracy": 0.9433,
+        "precision": 0.9417,
+        "recall": 0.9417,
+        "f1": 0.9417,
+        "roc_auc": 0.9838,
+        "pr_auc": 0.9855,
+        "phishing_fnr": 0.0583,
+        "legitimate_fpr": 0.0552,
+        "confusion_matrix": {
+          "tn": 633,
+          "fp": 37,
+          "fn": 37,
+          "tp": 598
+        }
+      },
+      "calibrated_threshold": 0.5,
+      "metrics_at_calibrated": {
+        "threshold": 0.5,
+        "accuracy": 0.9433,
+        "precision": 0.9417,
+        "recall": 0.9417,
+        "f1": 0.9417,
+        "roc_auc": 0.9838,
+        "pr_auc": 0.9855,
+        "phishing_fnr": 0.0583,
+        "legitimate_fpr": 0.0552,
+        "confusion_matrix": {
+          "tn": 633,
+          "fp": 37,
+          "fn": 37,
+          "tp": 598
+        }
+      }
+    },
+    "Candidate B (Shared Hosting)": {
+      "mode": "shared_hosting",
+      "feature_count": 36,
+      "metrics_at_050": {
+        "threshold": 0.5,
+        "accuracy": 0.9441,
+        "precision": 0.9475,
+        "recall": 0.937,
+        "f1": 0.9422,
+        "roc_auc": 0.9837,
+        "pr_auc": 0.9853,
+        "phishing_fnr": 0.063,
+        "legitimate_fpr": 0.0493,
+        "confusion_matrix": {
+          "tn": 637,
+          "fp": 33,
+          "fn": 40,
+          "tp": 595
+        }
+      },
+      "calibrated_threshold": 0.42,
+      "metrics_at_calibrated": {
+        "threshold": 0.42,
+        "accuracy": 0.9441,
+        "precision": 0.9258,
+        "recall": 0.9622,
+        "f1": 0.9436,
+        "roc_auc": 0.9837,
+        "pr_auc": 0.9853,
+        "phishing_fnr": 0.0378,
+        "legitimate_fpr": 0.0731,
+        "confusion_matrix": {
+          "tn": 621,
+          "fp": 49,
+          "fn": 24,
+          "tp": 611
+        }
+      }
+    },
+    "Candidate C (Short URL & Entropy)": {
+      "mode": "short_url",
+      "feature_count": 36,
+      "metrics_at_050": {
+        "threshold": 0.5,
+        "accuracy": 0.9425,
+        "precision": 0.943,
+        "recall": 0.9386,
+        "f1": 0.9408,
+        "roc_auc": 0.9847,
+        "pr_auc": 0.9862,
+        "phishing_fnr": 0.0614,
+        "legitimate_fpr": 0.0537,
+        "confusion_matrix": {
+          "tn": 634,
+          "fp": 36,
+          "fn": 39,
+          "tp": 596
+        }
+      },
+      "calibrated_threshold": 0.56,
+      "metrics_at_calibrated": {
+        "threshold": 0.56,
+        "accuracy": 0.9456,
+        "precision": 0.9548,
+        "recall": 0.9323,
+        "f1": 0.9434,
+        "roc_auc": 0.9847,
+        "pr_auc": 0.9862,
+        "phishing_fnr": 0.0677,
+        "legitimate_fpr": 0.0418,
+        "confusion_matrix": {
+          "tn": 642,
+          "fp": 28,
+          "fn": 43,
+          "tp": 592
+        }
+      }
+    },
+    "Candidate D (Combined V6)": {
+      "mode": "combined",
+      "feature_count": 46,
+      "metrics_at_050": {
+        "threshold": 0.5,
+        "accuracy": 0.9433,
+        "precision": 0.9445,
+        "recall": 0.9386,
+        "f1": 0.9415,
+        "roc_auc": 0.9848,
+        "pr_auc": 0.9861,
+        "phishing_fnr": 0.0614,
+        "legitimate_fpr": 0.0522,
+        "confusion_matrix": {
+          "tn": 635,
+          "fp": 35,
+          "fn": 39,
+          "tp": 596
+        }
+      },
+      "calibrated_threshold": 0.46,
+      "metrics_at_calibrated": {
+        "threshold": 0.46,
+        "accuracy": 0.9464,
+        "precision": 0.9393,
+        "recall": 0.9512,
+        "f1": 0.9452,
+        "roc_auc": 0.9848,
+        "pr_auc": 0.9861,
+        "phishing_fnr": 0.0488,
+        "legitimate_fpr": 0.0582,
+        "confusion_matrix": {
+          "tn": 631,
+          "fp": 39,
+          "fn": 31,
+          "tp": 604
+        }
+      }
+    }
+  }
+}

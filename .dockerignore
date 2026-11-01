@@ -1,0 +1,12 @@
+﻿.venv
+__pycache__
+*.pyc
+.git
+.gitignore
+client
+server
+training/dataset
+training/raw
+uploads
+history.json
+.env

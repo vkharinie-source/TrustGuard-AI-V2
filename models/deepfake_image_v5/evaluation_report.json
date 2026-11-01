@@ -1,0 +1,1236 @@
+{
+  "model_version": "5.0.0",
+  "architecture": "MobileNetV2 Dual-Pooling (GAP+GMP)",
+  "test_samples_total": 1000,
+  "per_class_counts": {
+    "FAKE": 500,
+    "REAL": 500
+  },
+  "threshold_used": 0.5,
+  "overall_metrics": {
+    "accuracy": 0.653,
+    "roc_auc": 0.749,
+    "real": {
+      "precision": 0.6076,
+      "recall": 0.864,
+      "f1_score": 0.7135
+    },
+    "fake": {
+      "precision": 0.7647,
+      "recall": 0.442,
+      "f1_score": 0.5602
+    }
+  },
+  "confusion_matrix": {
+    "true_fake_pred_fake (TN)": 221,
+    "true_fake_pred_real (FP)": 279,
+    "true_real_pred_fake (FN)": 68,
+    "true_real_pred_real (TP)": 432
+  },
+  "subpopulations": {
+    "deepguard_face_swap": {
+      "total_samples": 500,
+      "accuracy": 0.61,
+      "fake_recall": 0.232,
+      "fake_precision": 0.9508,
+      "real_recall": 0.988,
+      "confusion_matrix": {
+        "TN": 58,
+        "FP": 192,
+        "FN": 3,
+        "TP": 247
+      }
+    },
+    "kaggle_stylegan": {
+      "total_samples": 500,
+      "accuracy": 0.696,
+      "fake_recall": 0.652,
+      "real_recall": 0.74,
+      "confusion_matrix": {
+        "TN": 163,
+        "FP": 87,
+        "FN": 65,
+        "TP": 185
+      }
+    }
+  },
+  "high_confidence_false_reals_count": 168,
+  "high_confidence_false_reals": [
+    {
+      "filename": "deepguard_face_fake_00000_fake_00650.jpg",
+      "source_type": "deepguard_face_swap",
+      "actual": "FAKE",
+      "predicted": "REAL",
+      "score": 0.76384
+    },
+    {
+      "filename": "deepguard_face_fake_00001_fake_04646.jpg",
+      "source_type": "deepguard_face_swap",
+      "actual": "FAKE",
+      "predicted": "REAL",
+      "score": 0.709792
+    },
+    {
+      "filename": "deepguard_face_fake_00003_fake_03273.jpg",
+      "source_type": "deepguard_face_swap",
+      "actual": "FAKE",
+      "predicted": "REAL",
+      "score": 0.952414
+    },
+    {
+      "filename": "deepguard_face_fake_00005_fake_03081.jpg",
+      "source_type": "deepguard_face_swap",
+      "actual": "FAKE",
+      "predicted": "REAL",
+      "score": 0.778803
+    },
+    {
+      "filename": "deepguard_face_fake_00007_fake_04322.jpg",
+      "source_type": "deepguard_face_swap",
+      "actual": "FAKE",
+      "predicted": "REAL",
+      "score": 0.841044
+    },
+    {
+      "filename": "deepguard_face_fake_00008_fake_02211.jpg",
+      "source_type": "deepguard_face_swap",
+      "actual": "FAKE",
+      "predicted": "REAL",
+      "score": 0.747274
+    },
+    {
+      "filename": "deepguard_face_fake_00009_fake_00498.jpg",
+      "source_type": "deepguard_face_swap",
+      "actual": "FAKE",
+      "predicted": "REAL",
+      "score": 0.806331
+    },
+    {
+      "filename": "deepguard_face_fake_00012_fake_03194.jpg",
+      "source_type": "deepguard_face_swap",
+      "actual": "FAKE",
+      "predicted": "REAL",
+      "score": 0.703622
+    },
+    {
+      "filename": "deepguard_face_fake_00013_fake_00842.jpg",
+      "source_type": "deepguard_face_swap",
+      "actual": "FAKE",
+      "predicted": "REAL",
+      "score": 0.72399
+    },
+    {
+      "filename": "deepguard_face_fake_00014_fake_01463.jpg",
+      "source_type": "deepguard_face_swap",
+      "actual": "FAKE",
+      "predicted": "REAL",
+      "score": 0.954403
+    },
+    {
+      "filename": "deepguard_face_fake_00016_fake_00864.jpg",
+      "source_type": "deepguard_face_swap",
+      "actual": "FAKE",
+      "predicted": "REAL",
+      "score": 0.895289
+    },
+    {
+      "filename": "deepguard_face_fake_00018_fake_04428.jpg",
+      "source_type": "deepguard_face_swap",
+      "actual": "FAKE",
+      "predicted": "REAL",
+      "score": 0.751912
+    },
+    {
+      "filename": "deepguard_face_fake_00020_fake_02277.jpg",
+      "source_type": "deepguard_face_swap",
+      "actual": "FAKE",
+      "predicted": "REAL",
+      "score": 0.918185
+    },
+    {
+      "filename": "deepguard_face_fake_00021_fake_03574.jpg",
+      "source_type": "deepguard_face_swap",
+      "actual": "FAKE",
+      "predicted": "REAL",
+      "score": 0.842907
+    },
+    {
+      "filename": "deepguard_face_fake_00022_fake_02896.jpg",
+      "source_type": "deepguard_face_swap",
+      "actual": "FAKE",
+      "predicted": "REAL",
+      "score": 0.784224
+    },
+    {
+      "filename": "deepguard_face_fake_00024_fake_01350.jpg",
+      "source_type": "deepguard_face_swap",
+      "actual": "FAKE",
+      "predicted": "REAL",
+      "score": 0.897521
+    },
+    {
+      "filename": "deepguard_face_fake_00025_fake_01972.jpg",
+      "source_type": "deepguard_face_swap",
+      "actual": "FAKE",
+      "predicted": "REAL",
+      "score": 0.857155
+    },
+    {
+      "filename": "deepguard_face_fake_00026_fake_01162.jpg",
+      "source_type": "deepguard_face_swap",
+      "actual": "FAKE",
+      "predicted": "REAL",
+      "score": 0.942415
+    },
+    {
+      "filename": "deepguard_face_fake_00030_fake_03261.jpg",
+      "source_type": "deepguard_face_swap",
+      "actual": "FAKE",
+      "predicted": "REAL",
+      "score": 0.835333
+    },
+    {
+      "filename": "deepguard_face_fake_00032_fake_04624.jpg",
+      "source_type": "deepguard_face_swap",
+      "actual": "FAKE",
+      "predicted": "REAL",
+      "score": 0.752648
+    },
+    {
+      "filename": "deepguard_face_fake_00033_fake_01173.jpg",
+      "source_type": "deepguard_face_swap",
+      "actual": "FAKE",
+      "predicted": "REAL",
+      "score": 0.748428
+    },
+    {
+      "filename": "deepguard_face_fake_00034_fake_02457.jpg",
+      "source_type": "deepguard_face_swap",
+      "actual": "FAKE",
+      "predicted": "REAL",
+      "score": 0.845923
+    },
+    {
+      "filename": "deepguard_face_fake_00035_fake_01438.jpg",
+      "source_type": "deepguard_face_swap",
+      "actual": "FAKE",
+      "predicted": "REAL",
+      "score": 0.820785
+    },
+    {
+      "filename": "deepguard_face_fake_00036_fake_02940.jpg",
+      "source_type": "deepguard_face_swap",
+      "actual": "FAKE",
+      "predicted": "REAL",
+      "score": 0.73002
+    },
+    {
+      "filename": "deepguard_face_fake_00037_fake_05207.jpg",
+      "source_type": "deepguard_face_swap",
+      "actual": "FAKE",
+      "predicted": "REAL",
+      "score": 0.875407
+    },
+    {
+      "filename": "deepguard_face_fake_00041_fake_03960.jpg",
+      "source_type": "deepguard_face_swap",
+      "actual": "FAKE",
+      "predicted": "REAL",
+      "score": 0.787418
+    },
+    {
+      "filename": "deepguard_face_fake_00045_fake_02422.jpg",
+      "source_type": "deepguard_face_swap",
+      "actual": "FAKE",
+      "predicted": "REAL",
+      "score": 0.721478
+    },
+    {
+      "filename": "deepguard_face_fake_00046_fake_01949.jpg",
+      "source_type": "deepguard_face_swap",
+      "actual": "FAKE",
+      "predicted": "REAL",
+      "score": 0.833989
+    },
+    {
+      "filename": "deepguard_face_fake_00048_fake_01045.jpg",
+      "source_type": "deepguard_face_swap",
+      "actual": "FAKE",
+      "predicted": "REAL",
+      "score": 0.877994
+    },
+    {
+      "filename": "deepguard_face_fake_00050_fake_01295.jpg",
+      "source_type": "deepguard_face_swap",
+      "actual": "FAKE",
+      "predicted": "REAL",
+      "score": 0.806993
+    },
+    {
+      "filename": "deepguard_face_fake_00051_fake_01401.jpg",
+      "source_type": "deepguard_face_swap",
+      "actual": "FAKE",
+      "predicted": "REAL",
+      "score": 0.818571
+    },
+    {
+      "filename": "deepguard_face_fake_00053_fake_00420.jpg",
+      "source_type": "deepguard_face_swap",
+      "actual": "FAKE",
+      "predicted": "REAL",
+      "score": 0.822428
+    },
+    {
+      "filename": "deepguard_face_fake_00054_fake_02437.jpg",
+      "source_type": "deepguard_face_swap",
+      "actual": "FAKE",
+      "predicted": "REAL",
+      "score": 0.811027
+    },
+    {
+      "filename": "deepguard_face_fake_00055_fake_03850.jpg",
+      "source_type": "deepguard_face_swap",
+      "actual": "FAKE",
+      "predicted": "REAL",
+      "score": 0.901301
+    },
+    {
+      "filename": "deepguard_face_fake_00057_fake_00580.jpg",
+      "source_type": "deepguard_face_swap",
+      "actual": "FAKE",
+      "predicted": "REAL",
+      "score": 0.891844
+    },
+    {
+      "filename": "deepguard_face_fake_00059_fake_01902.jpg",
+      "source_type": "deepguard_face_swap",
+      "actual": "FAKE",
+      "predicted": "REAL",
+      "score": 0.724856
+    },
+    {
+      "filename": "deepguard_face_fake_00060_fake_01392.jpg",
+      "source_type": "deepguard_face_swap",
+      "actual": "FAKE",
+      "predicted": "REAL",
+      "score": 0.768569
+    },
+    {
+      "filename": "deepguard_face_fake_00061_fake_01786.jpg",
+      "source_type": "deepguard_face_swap",
+      "actual": "FAKE",
+      "predicted": "REAL",
+      "score": 0.742345
+    },
+    {
+      "filename": "deepguard_face_fake_00062_fake_02231.jpg",
+      "source_type": "deepguard_face_swap",
+      "actual": "FAKE",
+      "predicted": "REAL",
+      "score": 0.896099
+    },
+    {
+      "filename": "deepguard_face_fake_00067_fake_03152.jpg",
+      "source_type": "deepguard_face_swap",
+      "actual": "FAKE",
+      "predicted": "REAL",
+      "score": 0.833683
+    },
+    {
+      "filename": "deepguard_face_fake_00069_fake_00214.jpg",
+      "source_type": "deepguard_face_swap",
+      "actual": "FAKE",
+      "predicted": "REAL",
+      "score": 0.89381
+    },
+    {
+      "filename": "deepguard_face_fake_00075_fake_02689.jpg",
+      "source_type": "deepguard_face_swap",
+      "actual": "FAKE",
+      "predicted": "REAL",
+      "score": 0.822458
+    },
+    {
+      "filename": "deepguard_face_fake_00078_fake_03365.jpg",
+      "source_type": "deepguard_face_swap",
+      "actual": "FAKE",
+      "predicted": "REAL",
+      "score": 0.756163
+    },
+    {
+      "filename": "deepguard_face_fake_00082_fake_01133.jpg",
+      "source_type": "deepguard_face_swap",
+      "actual": "FAKE",
+      "predicted": "REAL",
+      "score": 0.724498
+    },
+    {
+      "filename": "deepguard_face_fake_00084_fake_02783.jpg",
+      "source_type": "deepguard_face_swap",
+      "actual": "FAKE",
+      "predicted": "REAL",
+      "score": 0.938336
+    },
+    {
+      "filename": "deepguard_face_fake_00086_fake_05001.jpg",
+      "source_type": "deepguard_face_swap",
+      "actual": "FAKE",
+      "predicted": "REAL",
+      "score": 0.86112
+    },
+    {
+      "filename": "deepguard_face_fake_00087_fake_00314.jpg",
+      "source_type": "deepguard_face_swap",
+      "actual": "FAKE",
+      "predicted": "REAL",
+      "score": 0.82364
+    },
+    {
+      "filename": "deepguard_face_fake_00089_fake_02266.jpg",
+      "source_type": "deepguard_face_swap",
+      "actual": "FAKE",
+      "predicted": "REAL",
+      "score": 0.944031
+    },
+    {
+      "filename": "deepguard_face_fake_00092_fake_02187.jpg",
+      "source_type": "deepguard_face_swap",
+      "actual": "FAKE",
+      "predicted": "REAL",
+      "score": 0.888276
+    },
+    {
+      "filename": "deepguard_face_fake_00094_fake_02288.jpg",
+      "source_type": "deepguard_face_swap",
+      "actual": "FAKE",
+      "predicted": "REAL",
+      "score": 0.951025
+    },
+    {
+      "filename": "deepguard_face_fake_00095_fake_02176.jpg",
+      "source_type": "deepguard_face_swap",
+      "actual": "FAKE",
+      "predicted": "REAL",
+      "score": 0.838794
+    },
+    {
+      "filename": "deepguard_face_fake_00097_fake_03026.jpg",
+      "source_type": "deepguard_face_swap",
+      "actual": "FAKE",
+      "predicted": "REAL",
+      "score": 0.719183
+    },
+    {
+      "filename": "deepguard_face_fake_00099_fake_01557.jpg",
+      "source_type": "deepguard_face_swap",
+      "actual": "FAKE",
+      "predicted": "REAL",
+      "score": 0.701969
+    },
+    {
+      "filename": "deepguard_face_fake_00100_fake_00174.jpg",
+      "source_type": "deepguard_face_swap",
+      "actual": "FAKE",
+      "predicted": "REAL",
+      "score": 0.734427
+    },
+    {
+      "filename": "deepguard_face_fake_00101_fake_02569.jpg",
+      "source_type": "deepguard_face_swap",
+      "actual": "FAKE",
+      "predicted": "REAL",
+      "score": 0.719746
+    },
+    {
+      "filename": "deepguard_face_fake_00102_fake_03724.jpg",
+      "source_type": "deepguard_face_swap",
+      "actual": "FAKE",
+      "predicted": "REAL",
+      "score": 0.818518
+    },
+    {
+      "filename": "deepguard_face_fake_00103_fake_03458.jpg",
+      "source_type": "deepguard_face_swap",
+      "actual": "FAKE",
+      "predicted": "REAL",
+      "score": 0.86042
+    },
+    {
+      "filename": "deepguard_face_fake_00105_fake_04744.jpg",
+      "source_type": "deepguard_face_swap",
+      "actual": "FAKE",
+      "predicted": "REAL",
+      "score": 0.957265
+    },
+    {
+      "filename": "deepguard_face_fake_00112_fake_00994.jpg",
+      "source_type": "deepguard_face_swap",
+      "actual": "FAKE",
+      "predicted": "REAL",
+      "score": 0.912864
+    },
+    {
+      "filename": "deepguard_face_fake_00114_fake_00158.jpg",
+      "source_type": "deepguard_face_swap",
+      "actual": "FAKE",
+      "predicted": "REAL",
+      "score": 0.80115
+    },
+    {
+      "filename": "deepguard_face_fake_00115_fake_05356.jpg",
+      "source_type": "deepguard_face_swap",
+      "actual": "FAKE",
+      "predicted": "REAL",
+      "score": 0.886263
+    },
+    {
+      "filename": "deepguard_face_fake_00119_fake_04539.jpg",
+      "source_type": "deepguard_face_swap",
+      "actual": "FAKE",
+      "predicted": "REAL",
+      "score": 0.750218
+    },
+    {
+      "filename": "deepguard_face_fake_00122_fake_01783.jpg",
+      "source_type": "deepguard_face_swap",
+      "actual": "FAKE",
+      "predicted": "REAL",
+      "score": 0.758798
+    },
+    {
+      "filename": "deepguard_face_fake_00126_fake_03133.jpg",
+      "source_type": "deepguard_face_swap",
+      "actual": "FAKE",
+      "predicted": "REAL",
+      "score": 0.767209
+    },
+    {
+      "filename": "deepguard_face_fake_00128_fake_04351.jpg",
+      "source_type": "deepguard_face_swap",
+      "actual": "FAKE",
+      "predicted": "REAL",
+      "score": 0.778159
+    },
+    {
+      "filename": "deepguard_face_fake_00130_fake_05263.jpg",
+      "source_type": "deepguard_face_swap",
+      "actual": "FAKE",
+      "predicted": "REAL",
+      "score": 0.856844
+    },
+    {
+      "filename": "deepguard_face_fake_00132_fake_04701.jpg",
+      "source_type": "deepguard_face_swap",
+      "actual": "FAKE",
+      "predicted": "REAL",
+      "score": 0.739932
+    },
+    {
+      "filename": "deepguard_face_fake_00133_fake_02475.jpg",
+      "source_type": "deepguard_face_swap",
+      "actual": "FAKE",
+      "predicted": "REAL",
+      "score": 0.81081
+    },
+    {
+      "filename": "deepguard_face_fake_00137_fake_03702.jpg",
+      "source_type": "deepguard_face_swap",
+      "actual": "FAKE",
+      "predicted": "REAL",
+      "score": 0.780894
+    },
+    {
+      "filename": "deepguard_face_fake_00138_fake_00401.jpg",
+      "source_type": "deepguard_face_swap",
+      "actual": "FAKE",
+      "predicted": "REAL",
+      "score": 0.724825
+    },
+    {
+      "filename": "deepguard_face_fake_00140_fake_04410.jpg",
+      "source_type": "deepguard_face_swap",
+      "actual": "FAKE",
+      "predicted": "REAL",
+      "score": 0.816988
+    },
+    {
+      "filename": "deepguard_face_fake_00143_fake_01332.jpg",
+      "source_type": "deepguard_face_swap",
+      "actual": "FAKE",
+      "predicted": "REAL",
+      "score": 0.967053
+    },
+    {
+      "filename": "deepguard_face_fake_00145_fake_02997.jpg",
+      "source_type": "deepguard_face_swap",
+      "actual": "FAKE",
+      "predicted": "REAL",
+      "score": 0.745414
+    },
+    {
+      "filename": "deepguard_face_fake_00146_fake_04620.jpg",
+      "source_type": "deepguard_face_swap",
+      "actual": "FAKE",
+      "predicted": "REAL",
+      "score": 0.96467
+    },
+    {
+      "filename": "deepguard_face_fake_00147_fake_00748.jpg",
+      "source_type": "deepguard_face_swap",
+      "actual": "FAKE",
+      "predicted": "REAL",
+      "score": 0.786155
+    },
+    {
+      "filename": "deepguard_face_fake_00148_fake_01527.jpg",
+      "source_type": "deepguard_face_swap",
+      "actual": "FAKE",
+      "predicted": "REAL",
+      "score": 0.880681
+    },
+    {
+      "filename": "deepguard_face_fake_00150_fake_00903.jpg",
+      "source_type": "deepguard_face_swap",
+      "actual": "FAKE",
+      "predicted": "REAL",
+      "score": 0.895598
+    },
+    {
+      "filename": "deepguard_face_fake_00151_fake_02700.jpg",
+      "source_type": "deepguard_face_swap",
+      "actual": "FAKE",
+      "predicted": "REAL",
+      "score": 0.911207
+    },
+    {
+      "filename": "deepguard_face_fake_00152_fake_02078.jpg",
+      "source_type": "deepguard_face_swap",
+      "actual": "FAKE",
+      "predicted": "REAL",
+      "score": 0.74331
+    },
+    {
+      "filename": "deepguard_face_fake_00153_fake_02049.jpg",
+      "source_type": "deepguard_face_swap",
+      "actual": "FAKE",
+      "predicted": "REAL",
+      "score": 0.951258
+    },
+    {
+      "filename": "deepguard_face_fake_00154_fake_03924.jpg",
+      "source_type": "deepguard_face_swap",
+      "actual": "FAKE",
+      "predicted": "REAL",
+      "score": 0.875055
+    },
+    {
+      "filename": "deepguard_face_fake_00157_fake_02779.jpg",
+      "source_type": "deepguard_face_swap",
+      "actual": "FAKE",
+      "predicted": "REAL",
+      "score": 0.948156
+    },
+    {
+      "filename": "deepguard_face_fake_00158_fake_03764.jpg",
+      "source_type": "deepguard_face_swap",
+      "actual": "FAKE",
+      "predicted": "REAL",
+      "score": 0.851739
+    },
+    {
+      "filename": "deepguard_face_fake_00159_fake_00886.jpg",
+      "source_type": "deepguard_face_swap",
+      "actual": "FAKE",
+      "predicted": "REAL",
+      "score": 0.792529
+    },
+    {
+      "filename": "deepguard_face_fake_00161_fake_03893.jpg",
+      "source_type": "deepguard_face_swap",
+      "actual": "FAKE",
+      "predicted": "REAL",
+      "score": 0.754213
+    },
+    {
+      "filename": "deepguard_face_fake_00162_fake_01261.jpg",
+      "source_type": "deepguard_face_swap",
+      "actual": "FAKE",
+      "predicted": "REAL",
+      "score": 0.752753
+    },
+    {
+      "filename": "deepguard_face_fake_00163_fake_00186.jpg",
+      "source_type": "deepguard_face_swap",
+      "actual": "FAKE",
+      "predicted": "REAL",
+      "score": 0.792217
+    },
+    {
+      "filename": "deepguard_face_fake_00164_fake_02764.jpg",
+      "source_type": "deepguard_face_swap",
+      "actual": "FAKE",
+      "predicted": "REAL",
+      "score": 0.934283
+    },
+    {
+      "filename": "deepguard_face_fake_00165_fake_04780.jpg",
+      "source_type": "deepguard_face_swap",
+      "actual": "FAKE",
+      "predicted": "REAL",
+      "score": 0.963291
+    },
+    {
+      "filename": "deepguard_face_fake_00172_fake_03409.jpg",
+      "source_type": "deepguard_face_swap",
+      "actual": "FAKE",
+      "predicted": "REAL",
+      "score": 0.745299
+    },
+    {
+      "filename": "deepguard_face_fake_00173_fake_01959.jpg",
+      "source_type": "deepguard_face_swap",
+      "actual": "FAKE",
+      "predicted": "REAL",
+      "score": 0.942017
+    },
+    {
+      "filename": "deepguard_face_fake_00176_fake_01289.jpg",
+      "source_type": "deepguard_face_swap",
+      "actual": "FAKE",
+      "predicted": "REAL",
+      "score": 0.83342
+    },
+    {
+      "filename": "deepguard_face_fake_00181_fake_01735.jpg",
+      "source_type": "deepguard_face_swap",
+      "actual": "FAKE",
+      "predicted": "REAL",
+      "score": 0.938252
+    },
+    {
+      "filename": "deepguard_face_fake_00185_fake_04027.jpg",
+      "source_type": "deepguard_face_swap",
+      "actual": "FAKE",
+      "predicted": "REAL",
+      "score": 0.86179
+    },
+    {
+      "filename": "deepguard_face_fake_00191_fake_05233.jpg",
+      "source_type": "deepguard_face_swap",
+      "actual": "FAKE",
+      "predicted": "REAL",
+      "score": 0.92658
+    },
+    {
+      "filename": "deepguard_face_fake_00193_fake_03063.jpg",
+      "source_type": "deepguard_face_swap",
+      "actual": "FAKE",
+      "predicted": "REAL",
+      "score": 0.778838
+    },
+    {
+      "filename": "deepguard_face_fake_00194_fake_00848.jpg",
+      "source_type": "deepguard_face_swap",
+      "actual": "FAKE",
+      "predicted": "REAL",
+      "score": 0.735044
+    },
+    {
+      "filename": "deepguard_face_fake_00197_fake_03032.jpg",
+      "source_type": "deepguard_face_swap",
+      "actual": "FAKE",
+      "predicted": "REAL",
+      "score": 0.996426
+    },
+    {
+      "filename": "deepguard_face_fake_00198_fake_03274.jpg",
+      "source_type": "deepguard_face_swap",
+      "actual": "FAKE",
+      "predicted": "REAL",
+      "score": 0.83726
+    },
+    {
+      "filename": "deepguard_face_fake_00199_fake_00646.jpg",
+      "source_type": "deepguard_face_swap",
+      "actual": "FAKE",
+      "predicted": "REAL",
+      "score": 0.726187
+    },
+    {
+      "filename": "deepguard_face_fake_00200_fake_05308.jpg",
+      "source_type": "deepguard_face_swap",
+      "actual": "FAKE",
+      "predicted": "REAL",
+      "score": 0.773426
+    },
+    {
+      "filename": "deepguard_face_fake_00202_fake_02336.jpg",
+      "source_type": "deepguard_face_swap",
+      "actual": "FAKE",
+      "predicted": "REAL",
+      "score": 0.709393
+    },
+    {
+      "filename": "deepguard_face_fake_00203_fake_03716.jpg",
+      "source_type": "deepguard_face_swap",
+      "actual": "FAKE",
+      "predicted": "REAL",
+      "score": 0.919182
+    },
+    {
+      "filename": "deepguard_face_fake_00205_fake_02646.jpg",
+      "source_type": "deepguard_face_swap",
+      "actual": "FAKE",
+      "predicted": "REAL",
+      "score": 0.829447
+    },
+    {
+      "filename": "deepguard_face_fake_00206_fake_03407.jpg",
+      "source_type": "deepguard_face_swap",
+      "actual": "FAKE",
+      "predicted": "REAL",
+      "score": 0.782427
+    },
+    {
+      "filename": "deepguard_face_fake_00208_fake_00267.jpg",
+      "source_type": "deepguard_face_swap",
+      "actual": "FAKE",
+      "predicted": "REAL",
+      "score": 0.766528
+    },
+    {
+      "filename": "deepguard_face_fake_00210_fake_01826.jpg",
+      "source_type": "deepguard_face_swap",
+      "actual": "FAKE",
+      "predicted": "REAL",
+      "score": 0.830979
+    },
+    {
+      "filename": "deepguard_face_fake_00211_fake_02542.jpg",
+      "source_type": "deepguard_face_swap",
+      "actual": "FAKE",
+      "predicted": "REAL",
+      "score": 0.930508
+    },
+    {
+      "filename": "deepguard_face_fake_00212_fake_00333.jpg",
+      "source_type": "deepguard_face_swap",
+      "actual": "FAKE",
+      "predicted": "REAL",
+      "score": 0.761463
+    },
+    {
+      "filename": "deepguard_face_fake_00213_fake_00329.jpg",
+      "source_type": "deepguard_face_swap",
+      "actual": "FAKE",
+      "predicted": "REAL",
+      "score": 0.855501
+    },
+    {
+      "filename": "deepguard_face_fake_00216_fake_00226.jpg",
+      "source_type": "deepguard_face_swap",
+      "actual": "FAKE",
+      "predicted": "REAL",
+      "score": 0.754532
+    },
+    {
+      "filename": "deepguard_face_fake_00219_fake_02732.jpg",
+      "source_type": "deepguard_face_swap",
+      "actual": "FAKE",
+      "predicted": "REAL",
+      "score": 0.84966
+    },
+    {
+      "filename": "deepguard_face_fake_00221_fake_01374.jpg",
+      "source_type": "deepguard_face_swap",
+      "actual": "FAKE",
+      "predicted": "REAL",
+      "score": 0.712747
+    },
+    {
+      "filename": "deepguard_face_fake_00222_fake_05204.jpg",
+      "source_type": "deepguard_face_swap",
+      "actual": "FAKE",
+      "predicted": "REAL",
+      "score": 0.736403
+    },
+    {
+      "filename": "deepguard_face_fake_00225_fake_01246.jpg",
+      "source_type": "deepguard_face_swap",
+      "actual": "FAKE",
+      "predicted": "REAL",
+      "score": 0.880229
+    },
+    {
+      "filename": "deepguard_face_fake_00226_fake_02175.jpg",
+      "source_type": "deepguard_face_swap",
+      "actual": "FAKE",
+      "predicted": "REAL",
+      "score": 0.825381
+    },
+    {
+      "filename": "deepguard_face_fake_00231_fake_00600.jpg",
+      "source_type": "deepguard_face_swap",
+      "actual": "FAKE",
+      "predicted": "REAL",
+      "score": 0.749568
+    },
+    {
+      "filename": "deepguard_face_fake_00232_fake_03264.jpg",
+      "source_type": "deepguard_face_swap",
+      "actual": "FAKE",
+      "predicted": "REAL",
+      "score": 0.898529
+    },
+    {
+      "filename": "deepguard_face_fake_00233_fake_01431.jpg",
+      "source_type": "deepguard_face_swap",
+      "actual": "FAKE",
+      "predicted": "REAL",
+      "score": 0.754309
+    },
+    {
+      "filename": "deepguard_face_fake_00234_fake_00583.jpg",
+      "source_type": "deepguard_face_swap",
+      "actual": "FAKE",
+      "predicted": "REAL",
+      "score": 0.992492
+    },
+    {
+      "filename": "deepguard_face_fake_00241_fake_02235.jpg",
+      "source_type": "deepguard_face_swap",
+      "actual": "FAKE",
+      "predicted": "REAL",
+      "score": 0.953168
+    },
+    {
+      "filename": "deepguard_face_fake_00242_fake_05091.jpg",
+      "source_type": "deepguard_face_swap",
+      "actual": "FAKE",
+      "predicted": "REAL",
+      "score": 0.979229
+    },
+    {
+      "filename": "deepguard_face_fake_00244_fake_03105.jpg",
+      "source_type": "deepguard_face_swap",
+      "actual": "FAKE",
+      "predicted": "REAL",
+      "score": 0.823218
+    },
+    {
+      "filename": "deepguard_face_fake_00246_fake_00719.jpg",
+      "source_type": "deepguard_face_swap",
+      "actual": "FAKE",
+      "predicted": "REAL",
+      "score": 0.751529
+    },
+    {
+      "filename": "deepguard_face_fake_00248_fake_03453.jpg",
+      "source_type": "deepguard_face_swap",
+      "actual": "FAKE",
+      "predicted": "REAL",
+      "score": 0.894778
+    },
+    {
+      "filename": "deepguard_face_fake_00249_fake_03268.jpg",
+      "source_type": "deepguard_face_swap",
+      "actual": "FAKE",
+      "predicted": "REAL",
+      "score": 0.810478
+    },
+    {
+      "filename": "kaggle_stylegan_fake_00258_fake_6207.jpg",
+      "source_type": "kaggle_stylegan",
+      "actual": "FAKE",
+      "predicted": "REAL",
+      "score": 0.706328
+    },
+    {
+      "filename": "kaggle_stylegan_fake_00263_fake_22268.jpg",
+      "source_type": "kaggle_stylegan",
+      "actual": "FAKE",
+      "predicted": "REAL",
+      "score": 0.750329
+    },
+    {
+      "filename": "kaggle_stylegan_fake_00267_fake_37356.jpg",
+      "source_type": "kaggle_stylegan",
+      "actual": "FAKE",
+      "predicted": "REAL",
+      "score": 0.828895
+    },
+    {
+      "filename": "kaggle_stylegan_fake_00269_fake_52382.jpg",
+      "source_type": "kaggle_stylegan",
+      "actual": "FAKE",
+      "predicted": "REAL",
+      "score": 0.77698
+    },
+    {
+      "filename": "kaggle_stylegan_fake_00278_fake_18989.jpg",
+      "source_type": "kaggle_stylegan",
+      "actual": "FAKE",
+      "predicted": "REAL",
+      "score": 0.756639
+    },
+    {
+      "filename": "kaggle_stylegan_fake_00293_fake_15023.jpg",
+      "source_type": "kaggle_stylegan",
+      "actual": "FAKE",
+      "predicted": "REAL",
+      "score": 0.792382
+    },
+    {
+      "filename": "kaggle_stylegan_fake_00304_fake_62787.jpg",
+      "source_type": "kaggle_stylegan",
+      "actual": "FAKE",
+      "predicted": "REAL",
+      "score": 0.793287
+    },
+    {
+      "filename": "kaggle_stylegan_fake_00306_fake_67783.jpg",
+      "source_type": "kaggle_stylegan",
+      "actual": "FAKE",
+      "predicted": "REAL",
+      "score": 0.933474
+    },
+    {
+      "filename": "kaggle_stylegan_fake_00315_fake_27979.jpg",
+      "source_type": "kaggle_stylegan",
+      "actual": "FAKE",
+      "predicted": "REAL",
+      "score": 0.764265
+    },
+    {
+      "filename": "kaggle_stylegan_fake_00325_fake_17380.jpg",
+      "source_type": "kaggle_stylegan",
+      "actual": "FAKE",
+      "predicted": "REAL",
+      "score": 0.858922
+    },
+    {
+      "filename": "kaggle_stylegan_fake_00334_fake_28075.jpg",
+      "source_type": "kaggle_stylegan",
+      "actual": "FAKE",
+      "predicted": "REAL",
+      "score": 0.730787
+    },
+    {
+      "filename": "kaggle_stylegan_fake_00344_fake_29615.jpg",
+      "source_type": "kaggle_stylegan",
+      "actual": "FAKE",
+      "predicted": "REAL",
+      "score": 0.947492
+    },
+    {
+      "filename": "kaggle_stylegan_fake_00347_fake_54229.jpg",
+      "source_type": "kaggle_stylegan",
+      "actual": "FAKE",
+      "predicted": "REAL",
+      "score": 0.728166
+    },
+    {
+      "filename": "kaggle_stylegan_fake_00351_fake_13918.jpg",
+      "source_type": "kaggle_stylegan",
+      "actual": "FAKE",
+      "predicted": "REAL",
+      "score": 0.872934
+    },
+    {
+      "filename": "kaggle_stylegan_fake_00352_fake_62101.jpg",
+      "source_type": "kaggle_stylegan",
+      "actual": "FAKE",
+      "predicted": "REAL",
+      "score": 0.849725
+    },
+    {
+      "filename": "kaggle_stylegan_fake_00353_fake_61032.jpg",
+      "source_type": "kaggle_stylegan",
+      "actual": "FAKE",
+      "predicted": "REAL",
+      "score": 0.774629
+    },
+    {
+      "filename": "kaggle_stylegan_fake_00354_fake_5843.jpg",
+      "source_type": "kaggle_stylegan",
+      "actual": "FAKE",
+      "predicted": "REAL",
+      "score": 0.767719
+    },
+    {
+      "filename": "kaggle_stylegan_fake_00359_fake_29049.jpg",
+      "source_type": "kaggle_stylegan",
+      "actual": "FAKE",
+      "predicted": "REAL",
+      "score": 0.77977
+    },
+    {
+      "filename": "kaggle_stylegan_fake_00362_fake_14532.jpg",
+      "source_type": "kaggle_stylegan",
+      "actual": "FAKE",
+      "predicted": "REAL",
+      "score": 0.725642
+    },
+    {
+      "filename": "kaggle_stylegan_fake_00371_fake_6044.jpg",
+      "source_type": "kaggle_stylegan",
+      "actual": "FAKE",
+      "predicted": "REAL",
+      "score": 0.777475
+    },
+    {
+      "filename": "kaggle_stylegan_fake_00376_fake_64033.jpg",
+      "source_type": "kaggle_stylegan",
+      "actual": "FAKE",
+      "predicted": "REAL",
+      "score": 0.796766
+    },
+    {
+      "filename": "kaggle_stylegan_fake_00377_fake_50964.jpg",
+      "source_type": "kaggle_stylegan",
+      "actual": "FAKE",
+      "predicted": "REAL",
+      "score": 0.775559
+    },
+    {
+      "filename": "kaggle_stylegan_fake_00387_fake_61146.jpg",
+      "source_type": "kaggle_stylegan",
+      "actual": "FAKE",
+      "predicted": "REAL",
+      "score": 0.786113
+    },
+    {
+      "filename": "kaggle_stylegan_fake_00399_fake_54282.jpg",
+      "source_type": "kaggle_stylegan",
+      "actual": "FAKE",
+      "predicted": "REAL",
+      "score": 0.802614
+    },
+    {
+      "filename": "kaggle_stylegan_fake_00404_fake_64161.jpg",
+      "source_type": "kaggle_stylegan",
+      "actual": "FAKE",
+      "predicted": "REAL",
+      "score": 0.716313
+    },
+    {
+      "filename": "kaggle_stylegan_fake_00410_fake_50450.jpg",
+      "source_type": "kaggle_stylegan",
+      "actual": "FAKE",
+      "predicted": "REAL",
+      "score": 0.773727
+    },
+    {
+      "filename": "kaggle_stylegan_fake_00412_fake_54656.jpg",
+      "source_type": "kaggle_stylegan",
+      "actual": "FAKE",
+      "predicted": "REAL",
+      "score": 0.743323
+    },
+    {
+      "filename": "kaggle_stylegan_fake_00417_fake_58868.jpg",
+      "source_type": "kaggle_stylegan",
+      "actual": "FAKE",
+      "predicted": "REAL",
+      "score": 0.852169
+    },
+    {
+      "filename": "kaggle_stylegan_fake_00425_fake_69090.jpg",
+      "source_type": "kaggle_stylegan",
+      "actual": "FAKE",
+      "predicted": "REAL",
+      "score": 0.922844
+    },
+    {
+      "filename": "kaggle_stylegan_fake_00427_fake_3587.jpg",
+      "source_type": "kaggle_stylegan",
+      "actual": "FAKE",
+      "predicted": "REAL",
+      "score": 0.729356
+    },
+    {
+      "filename": "kaggle_stylegan_fake_00434_fake_20738.jpg",
+      "source_type": "kaggle_stylegan",
+      "actual": "FAKE",
+      "predicted": "REAL",
+      "score": 0.701224
+    },
+    {
+      "filename": "kaggle_stylegan_fake_00442_fake_61882.jpg",
+      "source_type": "kaggle_stylegan",
+      "actual": "FAKE",
+      "predicted": "REAL",
+      "score": 0.840861
+    },
+    {
+      "filename": "kaggle_stylegan_fake_00451_fake_69380.jpg",
+      "source_type": "kaggle_stylegan",
+      "actual": "FAKE",
+      "predicted": "REAL",
+      "score": 0.882513
+    },
+    {
+      "filename": "kaggle_stylegan_fake_00461_fake_6230.jpg",
+      "source_type": "kaggle_stylegan",
+      "actual": "FAKE",
+      "predicted": "REAL",
+      "score": 0.759211
+    },
+    {
+      "filename": "kaggle_stylegan_fake_00462_fake_50965.jpg",
+      "source_type": "kaggle_stylegan",
+      "actual": "FAKE",
+      "predicted": "REAL",
+      "score": 0.863575
+    },
+    {
+      "filename": "kaggle_stylegan_fake_00464_fake_55405.jpg",
+      "source_type": "kaggle_stylegan",
+      "actual": "FAKE",
+      "predicted": "REAL",
+      "score": 0.754881
+    },
+    {
+      "filename": "kaggle_stylegan_fake_00465_fake_37984.jpg",
+      "source_type": "kaggle_stylegan",
+      "actual": "FAKE",
+      "predicted": "REAL",
+      "score": 0.833932
+    },
+    {
+      "filename": "kaggle_stylegan_fake_00472_fake_14825.jpg",
+      "source_type": "kaggle_stylegan",
+      "actual": "FAKE",
+      "predicted": "REAL",
+      "score": 0.735915
+    },
+    {
+      "filename": "kaggle_stylegan_fake_00489_fake_8953.jpg",
+      "source_type": "kaggle_stylegan",
+      "actual": "FAKE",
+      "predicted": "REAL",
+      "score": 0.805152
+    },
+    {
+      "filename": "kaggle_stylegan_fake_00496_fake_51475.jpg",
+      "source_type": "kaggle_stylegan",
+      "actual": "FAKE",
+      "predicted": "REAL",
+      "score": 0.858576
+    },
+    {
+      "filename": "kaggle_stylegan_fake_00497_fake_49746.jpg",
+      "source_type": "kaggle_stylegan",
+      "actual": "FAKE",
+      "predicted": "REAL",
+      "score": 0.761505
+    },
+    {
+      "filename": "kaggle_stylegan_fake_00499_fake_62898.jpg",
+      "source_type": "kaggle_stylegan",
+      "actual": "FAKE",
+      "predicted": "REAL",
+      "score": 0.815277
+    }
+  ]
+}

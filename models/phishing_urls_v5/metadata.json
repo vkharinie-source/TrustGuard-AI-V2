@@ -1,0 +1,19 @@
+{
+  "module": "phishing_urls",
+  "version": "v5",
+  "model_type": "Unified URL FeatureUnion (32-lexical + char_wb 3-5 + word 1-2) + LogisticRegression",
+  "dataset": "training_v5.parquet and preserved Testing.parquet",
+  "validation_accuracy": 0.9410760034158838,
+  "validation_recall": 0.934931506849315,
+  "validation_f1": 0.9405684754521964,
+  "test_accuracy": 0.9398197242841994,
+  "test_recall": 0.9395546129374337,
+  "test_f1": 0.9398037655794219,
+  "test_roc_auc": 0.9838048735506026,
+  "phishing_false_negatives": 114,
+  "decision_threshold": 0.46,
+  "classes": [
+    0,
+    1
+  ]
+}

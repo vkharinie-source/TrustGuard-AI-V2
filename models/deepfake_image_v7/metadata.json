@@ -1,0 +1,171 @@
+{
+  "model_name": "MobileNetV2 DeepFake Detector V7 (Dual-Stream Shared Backbone)",
+  "version": "7.0.0",
+  "architecture": "Dual-Stream Shared MobileNetV2 (Crop + Full-Frame) + Dual-Pooling (5120-d) + Dense ANN Head",
+  "input_size": {
+    "stream_a_crop": {
+      "width": 224,
+      "height": 224,
+      "channels": 3
+    },
+    "stream_b_frame": {
+      "width": 224,
+      "height": 224,
+      "channels": 3
+    }
+  },
+  "preprocessing": "Stream A: FaceCrop(20% margin) -> Rescaling; Stream B: FullFrame -> Rescaling",
+  "training_augmentations": "Random JPEG Compression (Q=45-95) + Gaussian Blur (3x3 depthwise) + Jitter",
+  "class_mapping": {
+    "0": "FAKE",
+    "1": "REAL"
+  },
+  "decision_threshold": 0.5,
+  "threshold_selection_criterion": "Max Youden J on Validation data with standard 0.50 preference within 0.02 margin",
+  "trained_at": "2026-10-23T18:13:34Z",
+  "backbone": "MobileNetV2 (Shared)",
+  "training_epochs": {
+    "stage1_epochs": 4,
+    "stage2_epochs": 4,
+    "total_epochs": 8
+  },
+  "training_history": {
+    "stage1": {
+      "accuracy": [
+        0.5899999737739563,
+        0.7260000109672546,
+        0.7707499861717224,
+        0.7982500195503235
+      ],
+      "auc": [
+        0.6206920146942139,
+        0.7963500022888184,
+        0.8534772396087646,
+        0.8894937038421631
+      ],
+      "loss": [
+        0.8318163156509399,
+        0.62061607837677,
+        0.5549641847610474,
+        0.5012077689170837
+      ],
+      "precision": [
+        0.5958466529846191,
+        0.7325102686882019,
+        0.7725213766098022,
+        0.799297571182251
+      ],
+      "recall": [
+        0.559499979019165,
+        0.7120000123977661,
+        0.7674999833106995,
+        0.796500027179718
+      ],
+      "val_accuracy": [
+        0.6779999732971191,
+        0.7239999771118164,
+        0.746999979019165,
+        0.7440000176429749
+      ],
+      "val_auc": [
+        0.760901927947998,
+        0.8052420020103455,
+        0.8374499678611755,
+        0.8460000157356262
+      ],
+      "val_loss": [
+        0.6914588212966919,
+        0.6224195957183838,
+        0.5911098718643188,
+        0.6194170713424683
+      ],
+      "val_precision": [
+        0.7342105507850647,
+        0.7393162250518799,
+        0.7209302186965942,
+        0.6967741847038269
+      ],
+      "val_recall": [
+        0.5580000281333923,
+        0.6919999718666077,
+        0.8059999942779541,
+        0.8640000224113464
+      ]
+    },
+    "stage2": {
+      "accuracy": [
+        0.7825000286102295,
+        0.8044999837875366,
+        0.8314999938011169,
+        0.8569999933242798
+      ],
+      "auc": [
+        0.8610033988952637,
+        0.890801191329956,
+        0.9137104749679565,
+        0.9363725781440735
+      ],
+      "loss": [
+        0.5610464215278625,
+        0.5073850154876709,
+        0.46128949522972107,
+        0.40761783719062805
+      ],
+      "precision": [
+        0.7797029614448547,
+        0.7997047305107117,
+        0.8288690447807312,
+        0.8598790168762207
+      ],
+      "recall": [
+        0.7875000238418579,
+        0.8125,
+        0.8355000019073486,
+        0.8529999852180481
+      ],
+      "val_accuracy": [
+        0.6190000176429749,
+        0.5,
+        0.5249999761581421,
+        0.8600000143051147
+      ],
+      "val_auc": [
+        0.844111979007721,
+        0.6915900707244873,
+        0.6283420324325562,
+        0.9354580640792847
+      ],
+      "val_loss": [
+        0.8309558033943176,
+        2.346226692199707,
+        1.5048056840896606,
+        0.4227488934993744
+      ],
+      "val_precision": [
+        0.5702479481697083,
+        0.5,
+        0.5201288461685181,
+        0.8321033120155334
+      ],
+      "val_recall": [
+        0.9660000205039978,
+        1.0,
+        0.6460000276565552,
+        0.9020000100135803
+      ],
+      "learning_rate": [
+        9.999999747378752e-05,
+        9.999999747378752e-05,
+        9.999999747378752e-05,
+        4.999999873689376e-05
+      ]
+    }
+  },
+  "best_val_loss": 0.4227488934993744,
+  "batch_size": 32,
+  "random_seed": 42,
+  "experiment_notes": {
+    "isolation": "Production V4 model, predictor.py, server/main.py, and client/ untouched.",
+    "dual_stream": "Reconciles localized boundary artifacts with global contextual background consistency."
+  }
+}

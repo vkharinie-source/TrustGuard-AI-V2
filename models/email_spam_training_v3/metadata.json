@@ -1,0 +1,12 @@
+{
+  "module": "email_spam",
+  "version": "v3",
+  "best_algorithm": "SGDClassifier_LogLoss",
+  "selected_threshold": 0.5,
+  "label_mapping": {
+    "0": "legitimate",
+    "1": "spam_phishing"
+  },
+  "vectorizer": "TF-IDF (max_features=40000, ngram=(1,2), sublinear_tf=True)",
+  "random_seed": 42
+}
