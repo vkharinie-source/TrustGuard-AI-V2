@@ -10,3 +10,4 @@ training/raw
 uploads
 history.json
 .env
+app/uploads/
