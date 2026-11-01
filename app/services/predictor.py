@@ -357,7 +357,12 @@ def predict_image(
     attention = generate_attention_map(raw_bytes) if include_forensics else {}
 
     # Optional Cross-model comparison
-    cross_model_data = compare_models(image) if include_cross_model else {}
+    cross_model_data = compare_models(
+        pil_image=image,
+        raw_score=raw_score,
+        primary_label=label,
+        confidence=confidence,
+    ) if include_cross_model else {}
 
     # Metadata & EXIF
     exif_info = extract_exif_metadata(image)
@@ -411,6 +416,7 @@ def predict_image(
         "forensics": forensics,
         "attention_map": attention.get("attention_map_base64"),
         "cross_model": cross_model_data,
+        "cross_model_comparison": cross_model_data,
         "metadata": exif_info,
         "disclaimer": (
             "Verification result is a calibrated statistical assessment produced by machine learning models, "
