@@ -40,7 +40,12 @@ export default function RegisterPage({ setCurrentUser }) {
         navigate('/login');
       }
     } catch (err) {
-      setError(err.message || 'Registration failed. Please try again.');
+      const msg = err.message || '';
+      setError(
+        msg && msg !== 'Not Found'
+          ? msg
+          : 'Registration service is connecting. Please try again in a moment.'
+      );
     } finally {
       setLoading(false);
     }

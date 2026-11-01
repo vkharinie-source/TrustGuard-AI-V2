@@ -1,4 +1,3 @@
-
 from fastapi import FastAPI, UploadFile, File
 from fastapi.middleware.cors import CORSMiddleware
 
@@ -6,7 +5,13 @@ from app.routes.prediction import (
     router as prediction_router,
     handle_prediction,
 )
-from app.routes.auth import router as auth_router
+from app.routes.auth import (
+    router as auth_router,
+    register as auth_register,
+    login as auth_login,
+    RegisterRequest,
+    LoginRequest,
+)
 from app.routes.history import router as history_router
 from app.routes.message import router as message_router
 from app.routes.email import router as email_router
@@ -42,16 +47,14 @@ app.add_middleware(
         "http://localhost:3000",
         "http://127.0.0.1:3000",
 
-        # Existing frontend - preserve compatibility
-        "https://deepfake-detector-trustguard-ai-1.onrender.com",
-
-        # New TrustGuard AI V2 frontend
+        # Render production frontends & backends
         "https://trustguard-ai-v2-frontend.onrender.com",
+        "https://trustguard-ai-v2-backend.onrender.com",
+        "https://deepfake-detector-trustguard-ai-1.onrender.com",
+        "https://deepfake-detector-trustguard-ai.onrender.com",
     ],
-
-    # Allow local development origins
-    allow_origin_regex=r"^https?://(localhost|127\.0\.0\.1)(:\d+)?$",
-
+    # Automatically permit all onrender.com subdomains and local ports
+    allow_origin_regex=r"^https?://(localhost|127\.0\.0\.1)(:\d+)?$|^https://.*\.onrender\.com$",
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -74,13 +77,25 @@ app.include_router(news_router)
 
 
 # ============================================================
-# PREDICT TOP-LEVEL ROUTE
-# Frontend compatibility
+# COMPATIBILITY TOP-LEVEL ROUTE ALIASES
+# Frontend compatibility across versions
 # ============================================================
 
 @app.post("/predict")
 async def predict_top_level(file: UploadFile = File(...)):
     return await handle_prediction(file)
+
+
+@app.post("/register")
+@app.post("/auth/register")
+async def register_top_level(data: RegisterRequest):
+    return await auth_register(data)
+
+
+@app.post("/login")
+@app.post("/auth/login")
+async def login_top_level(data: LoginRequest):
+    return await auth_login(data)
 
 
 # ============================================================
@@ -89,9 +104,7 @@ async def predict_top_level(file: UploadFile = File(...)):
 
 @app.get("/api/dashboard/stats")
 def dashboard_stats():
-
     items = get_history()
-
     total = len(items)
 
     safe_count = 0
@@ -99,35 +112,27 @@ def dashboard_stats():
     threat_count = 0
 
     for item in items:
-
         pred = str(
             item.get("prediction", "")
             or item.get("result", "")
         ).upper()
 
         if pred in ("REAL", "SAFE", "LEGITIMATE"):
-
             safe_count += 1
-
         elif pred == "SUSPICIOUS":
-
             suspicious_count += 1
             threat_count += 1
-
         else:
-
             threat_count += 1
 
     return {
         "success": True,
-
         "stats": {
             "total": total,
             "safe": safe_count,
             "suspicious": suspicious_count,
             "threats_detected": threat_count,
         },
-
         "recent": items[:5],
     }
 
@@ -138,13 +143,11 @@ def dashboard_stats():
 
 @app.get("/")
 def root():
-
     return {
         "success": True,
         "message": "TrustGuard AI API",
         "version": "2.0.0",
         "status": "running",
-
         "endpoints": [
             "POST /predict",
             "POST /api/predict/image",
@@ -176,7 +179,6 @@ def root():
 @app.get("/health")
 @app.get("/api/health")
 def health():
-
     return {
         "success": True,
         "status": "healthy",
