@@ -2,7 +2,10 @@
 from fastapi import FastAPI, UploadFile, File
 from fastapi.middleware.cors import CORSMiddleware
 
-from app.routes.prediction import router as prediction_router, handle_prediction
+from app.routes.prediction import (
+    router as prediction_router,
+    handle_prediction,
+)
 from app.routes.auth import router as auth_router
 from app.routes.history import router as history_router
 from app.routes.message import router as message_router
@@ -32,7 +35,6 @@ app = FastAPI(
 
 app.add_middleware(
     CORSMiddleware,
-
     allow_origins=[
         # Local development
         "http://localhost:5173",
@@ -44,7 +46,7 @@ app.add_middleware(
         "https://deepfake-detector-trustguard-ai-1.onrender.com",
 
         # New TrustGuard AI V2 frontend
-        "https://YOUR-NEW-FRONTEND-URL.onrender.com",
+        "https://trustguard-ai-v2-frontend.onrender.com",
     ],
 
     # Allow local development origins
