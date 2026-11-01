@@ -106,7 +106,16 @@ export default function DeepFake() {
       await new Promise((r) => setTimeout(r, 200));
       setResult(data);
     } catch (err) {
-      setError(err.message || 'Image analysis failed.');
+      const msg = err?.message || 'Image analysis failed.';
+      if (
+        msg.toLowerCase().includes('failed to fetch') ||
+        msg.toLowerCase().includes('networkerror') ||
+        msg.toLowerCase().includes('load failed')
+      ) {
+        setError('AI server is warming up (Render free tier spin-up takes ~20s). Please click "Verify Authenticity" again.');
+      } else {
+        setError(msg);
+      }
     } finally {
       setLoading(false);
       setLoadingMsg('');
@@ -470,9 +479,28 @@ export default function DeepFake() {
             <div style={{
               backgroundColor: '#FDF2F4', border: '1px solid #F4C2CA',
               color: '#963143', padding: '0.85rem 1rem', borderRadius: '8px', fontSize: '0.85rem',
-              display: 'flex', alignItems: 'center', gap: '0.5rem', fontWeight: '600'
+              display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '0.75rem', fontWeight: '600'
             }}>
-              <AlertTriangle size={16} color="#D98291" /> {error}
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                <AlertTriangle size={16} color="#D98291" /> {error}
+              </div>
+              <button
+                type="button"
+                onClick={handleAnalyzeImage}
+                style={{
+                  padding: '0.35rem 0.75rem',
+                  fontSize: '0.78rem',
+                  fontWeight: '700',
+                  color: '#fff',
+                  backgroundColor: '#7F5D99',
+                  border: 'none',
+                  borderRadius: '6px',
+                  cursor: 'pointer',
+                  whiteSpace: 'nowrap'
+                }}
+              >
+                Retry
+              </button>
             </div>
           )}
 

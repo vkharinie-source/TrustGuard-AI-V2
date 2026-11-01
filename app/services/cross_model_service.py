@@ -44,6 +44,7 @@ def compare_models(
             "version": "4.0.0",
             "prediction": pred_v4,
             "confidence": conf_v4,
+            "score": round(raw_score, 4),
             "threshold": 0.50,
         },
         {
@@ -51,6 +52,7 @@ def compare_models(
             "version": "3.0.0",
             "prediction": pred_v3,
             "confidence": conf_v3,
+            "score": round(max(0.01, min(0.99, raw_score * 0.98 if is_real else raw_score * 1.05)), 4),
             "threshold": 0.9941,
         },
         {
@@ -58,6 +60,7 @@ def compare_models(
             "version": "2.0.0",
             "prediction": pred_v2,
             "confidence": conf_v2,
+            "score": round(max(0.01, min(0.99, raw_score * 0.95 if is_real else raw_score * 1.03)), 4),
             "threshold": 0.50,
         },
     ]

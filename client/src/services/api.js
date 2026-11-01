@@ -200,43 +200,62 @@ export const api = {
     let lastError = null;
 
     for (const url of uniqueEndpoints) {
-      try {
-        const formData = new FormData();
-        formData.append("file", file);
+      for (let attempt = 1; attempt <= 2; attempt++) {
+        try {
+          const formData = new FormData();
+          formData.append("file", file);
 
-        const res = await fetch(url, {
-          method: "POST",
-          body: formData,
-        });
+          const res = await fetch(url, {
+            method: "POST",
+            body: formData,
+          });
 
-        let data = {};
-        const contentType = res.headers.get("content-type") || "";
-        if (contentType.includes("application/json")) {
-          data = await res.json();
-        } else {
-          const text = await res.text();
-          try {
-            data = JSON.parse(text);
-          } catch {
-            data = { detail: res.ok ? "Success" : text || `HTTP ${res.status}` };
-          }
-        }
-
-        if (!res.ok) {
-          if (res.status === 404 && url !== uniqueEndpoints[uniqueEndpoints.length - 1]) {
+          if ((res.status === 502 || res.status === 503 || res.status === 504) && attempt === 1) {
+            await new Promise((r) => setTimeout(r, 2000));
             continue;
           }
-          throw new Error(
-            data.detail ||
-            data.message ||
-            `Image prediction failed (HTTP ${res.status}).`
-          );
-        }
 
-        return data;
-      } catch (err) {
-        lastError = err;
+          let data = {};
+          const contentType = res.headers.get("content-type") || "";
+          if (contentType.includes("application/json")) {
+            data = await res.json();
+          } else {
+            const text = await res.text();
+            try {
+              data = JSON.parse(text);
+            } catch {
+              data = { detail: res.ok ? "Success" : text || `HTTP ${res.status}` };
+            }
+          }
+
+          if (!res.ok) {
+            if (res.status === 404 && url !== uniqueEndpoints[uniqueEndpoints.length - 1]) {
+              break;
+            }
+            throw new Error(
+              data.detail ||
+              data.message ||
+              `Image prediction failed (HTTP ${res.status}).`
+            );
+          }
+
+          return data;
+        } catch (err) {
+          lastError = err;
+          if (attempt === 1) {
+            await new Promise((r) => setTimeout(r, 1500));
+          }
+        }
       }
+    }
+
+    const errStr = String(lastError?.message || lastError || "");
+    if (
+      errStr.toLowerCase().includes("failed to fetch") ||
+      errStr.toLowerCase().includes("networkerror") ||
+      errStr.toLowerCase().includes("load failed")
+    ) {
+      throw new Error("AI backend is warming up (Render free tier takes ~20s). Please click 'Verify Authenticity' again.");
     }
 
     throw lastError || new Error("Image prediction failed. Please try again.");
