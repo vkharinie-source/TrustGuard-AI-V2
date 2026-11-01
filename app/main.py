@@ -1,3 +1,4 @@
+
 from fastapi import FastAPI, UploadFile, File
 from fastapi.middleware.cors import CORSMiddleware
 
@@ -10,6 +11,7 @@ from app.routes.website import router as website_router
 from app.routes.call import router as call_router
 from app.routes.scams import router as scams_router
 from app.routes.news import router as news_router
+
 from app.services.history_service import get_history
 
 
@@ -30,14 +32,24 @@ app = FastAPI(
 
 app.add_middleware(
     CORSMiddleware,
+
     allow_origins=[
+        # Local development
         "http://localhost:5173",
         "http://127.0.0.1:5173",
         "http://localhost:3000",
         "http://127.0.0.1:3000",
+
+        # Existing frontend - preserve compatibility
         "https://deepfake-detector-trustguard-ai-1.onrender.com",
+
+        # New TrustGuard AI V2 frontend
+        "https://YOUR-NEW-FRONTEND-URL.onrender.com",
     ],
+
+    # Allow local development origins
     allow_origin_regex=r"^https?://(localhost|127\.0\.0\.1)(:\d+)?$",
+
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -60,7 +72,8 @@ app.include_router(news_router)
 
 
 # ============================================================
-# PREDICT TOP-LEVEL ROUTE (for frontend compatibility)
+# PREDICT TOP-LEVEL ROUTE
+# Frontend compatibility
 # ============================================================
 
 @app.post("/predict")
@@ -69,12 +82,14 @@ async def predict_top_level(file: UploadFile = File(...)):
 
 
 # ============================================================
-# DASHBOARD STATS
+# DASHBOARD STATISTICS
 # ============================================================
 
 @app.get("/api/dashboard/stats")
 def dashboard_stats():
+
     items = get_history()
+
     total = len(items)
 
     safe_count = 0
@@ -82,23 +97,35 @@ def dashboard_stats():
     threat_count = 0
 
     for item in items:
-        pred = str(item.get("prediction", "") or item.get("result", "")).upper()
+
+        pred = str(
+            item.get("prediction", "")
+            or item.get("result", "")
+        ).upper()
+
         if pred in ("REAL", "SAFE", "LEGITIMATE"):
+
             safe_count += 1
-        elif pred in ("SUSPICIOUS",):
+
+        elif pred == "SUSPICIOUS":
+
             suspicious_count += 1
             threat_count += 1
+
         else:
+
             threat_count += 1
 
     return {
         "success": True,
+
         "stats": {
             "total": total,
             "safe": safe_count,
             "suspicious": suspicious_count,
             "threats_detected": threat_count,
         },
+
         "recent": items[:5],
     }
 
@@ -109,11 +136,13 @@ def dashboard_stats():
 
 @app.get("/")
 def root():
+
     return {
         "success": True,
         "message": "TrustGuard AI API",
         "version": "2.0.0",
         "status": "running",
+
         "endpoints": [
             "POST /predict",
             "POST /api/predict/image",
@@ -145,6 +174,7 @@ def root():
 @app.get("/health")
 @app.get("/api/health")
 def health():
+
     return {
         "success": True,
         "status": "healthy",
